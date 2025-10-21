@@ -2,9 +2,14 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            var worker = new WorkItemProcessor();
+
+            await worker.StartProcessingAsync("localhost");
+
+            Console.WriteLine("Worker is running. Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }
